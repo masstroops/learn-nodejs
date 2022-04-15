@@ -1,0 +1,59 @@
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
+  <head>
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="info"></div>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js"></script>
+    <script>
+      $(function() {
+        jQuery.support.cors = true
+        
+        var url = "http://129.211.130.58:88/api/police/GetImgNews?timeStamp=" + new Date().getTime();
+        $.get(url,function(data){
+        })
+  
+        jQuery.ajax({
+          url: 'http://129.211.130.58:88/api/police/GetImgNews',
+          type: 'GET',
+          cache: false,
+          contentType: 'text/plain',
+          success: function(res){
+            if (res.success) {
+              var imgList = res.data
+              var html = ""
+              for (var i = 0; i < imgList.length; i++) {
+                if (i == 0) {
+                  html += '<div class="active item">' +
+                    '<input type="hidden" id="Id" value="' + imgList[i].id + '" />' +
+                    '<input type="hidden" id="columnId" value="' + imgList[i].columnId + '" />' +
+                    '<img src="' + imgList[i].imgUrl + '">' +
+                    '<div class="text">' +
+                    '    <p>' + imgList[i].title + '</p> ' +
+                    ' </div>' +
+                    '</div>'
+                }
+                else {
+                  html += '<div class="item">' +
+                    '  <input type="hidden" id="Id" value="' + imgList[i].id + '" /> ' +
+                    '  <input type="hidden" id="columnId" value="' + imgList[i].columnId + '" /> ' +
+                    '  <img src="' + imgList[i].imgUrl + '"> ' +
+                    '  <div class="text">' +
+                    '      <p>' + imgList[i].title + '</p> ' +
+                    '  </div>' +
+                    '</div>'
+                }
+              }
+              $("#slideshow").html(html)
+            }
+          }
+        })
+      })
+    </script>
+  </body>
+  <!-- </html> -->

@@ -1,0 +1,13 @@
+**/node_modules
+-front_end_notebook-master/
+geek-nodejs-master/
+
+# others
+*.jar
+*.war
+*.zip
+*.tar
+*.tar.gz
+*.pid
+*.orig
+temp/

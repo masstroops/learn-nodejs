@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>登录</title>
+	
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="/css/default.css">
+	<script src='/js/prefixfree.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="/css/login.css">
+</head>
+<body>
+<div id="logo"> 
+  <h1 class="hogo"><i> STARK INDUSTRIES</i></h1>
+</div> 
+<section class="stark-login">
+  <form action="/register" method="POST">	
+    <div id="fade-box">
+      <input type="text" name="username" id="用户名" placeholder="用户名" required>
+      <input type="text" name="email" id="邮箱" placeholder="邮箱" required>
+      <input type="password" name="password" placeholder="密码" required>
+      <input type="password" name="repassword" placeholder="再次输入密码" required>
+      <button>注册</button> 
+    </div>
+  </form>
+      <div class="hexagons">
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <span>&#x2B22;</span>
+        <br>
+          <span>&#x2B22;</span>
+          <span>&#x2B22;</span>
+          <span>&#x2B22;</span>
+          <span>&#x2B22;</span>
+          <span>&#x2B22;</span>
+          <span>&#x2B22;</span>
+          <span>&#x2B22;</span>
+          <span>&#x2B22;</span>
+          <span>&#x2B22;</span>
+          <span>&#x2B22;</span>
+          <span>&#x2B22;</span>
+          <br>
+            <span>&#x2B22;</span>
+            <span>&#x2B22;</span>
+            <span>&#x2B22;</span>
+            <span>&#x2B22;</span> 
+            <span>&#x2B22;</span>
+            <span>&#x2B22;</span>
+            <span>&#x2B22;</span>
+            <span>&#x2B22;</span>
+            <span>&#x2B22;</span>
+            <span>&#x2B22;</span>
+            <span>&#x2B22;</span>
+            <span>&#x2B22;</span>
+            
+            <br>
+              <span>&#x2B22;</span>
+              <span>&#x2B22;</span>
+              <span>&#x2B22;</span>
+              <span>&#x2B22;</span>
+              <span>&#x2B22;</span>
+              <span>&#x2B22;</span>
+              <span>&#x2B22;</span>
+              <span>&#x2B22;</span>
+              <span>&#x2B22;</span>
+              <span>&#x2B22;</span>
+              <span>&#x2B22;</span>
+              <br>
+                <span>&#x2B22;</span>
+                <span>&#x2B22;</span>
+                <span>&#x2B22;</span>
+                <span>&#x2B22;</span>
+                <span>&#x2B22;</span>
+                <span>&#x2B22;</span>
+                <span>&#x2B22;</span>
+                <span>&#x2B22;</span>
+                <span>&#x2B22;</span>
+                <span>&#x2B22;</span>
+                <span>&#x2B22;</span>
+                <span>&#x2B22;</span>
+              </div>      
+        </section> 
+    
+        <div id="circle1">
+          <div id="inner-cirlce1">
+            <h2> </h2>
+          </div>
+        </div>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+	<script>
+    var form = document.querySelector('form')
+    var inputs = document.querySelectorAll('form input')
+    form.oninput = function() {
+      isAble = true
+      inputs.forEach((item, i) => {
+        if (item.value == '') {
+          isAble = false
+        }
+        // 正则匹配
+        let reg = /[0-9A-z]+\@[0-9A-z]+\.[0-9A-z]/
+        
+        if (inputs[2].value == inputs[3].value && isAble && reg.test(inputs[1].value)) {
+          document.querySelector('button').disabled = false
+          document.querySelector('button').style
+        } else {
+          document.querySelector('button').disabled = true
+          document.querySelector('button').style
+        }
+      })
+    }
+  </script>
+</body>
+</html>

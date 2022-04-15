@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>书城</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<canvas class="cavs" width="1148" height="943"></canvas>
+<body>
+  <div class="header">
+    <div class="navheader"></div>
+    <div class="nav">
+      <div class="navList">
+        <div class="link"><a href="/">首页</a></div>
+        <% for(let i = 0; i < categorys.length; i++) { %>
+          <div class="link"><a href="/category/<%= categorys[i].id %>/page/1"><%= categorys[i].name %></a></div>
+        <% } %>
+        <div class="search">
+          <input type="text" id="search">
+          <button id="searchBtn"><span class="icon"></span><span class="text">搜索</span></button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="content">
+    <div class="booklist">
+      <% for(let i = 0; i < books.length; i++) { %>
+      <a href="/books/<%- books[i].id %>">
+        <div class="bookitem">
+          <img class="bookimg" src="<%- books[i].bookimg %>" alt="">
+          <h3 class="title"><%- books[i].bookname %></h3>
+          <p class="author"><%- books[i].author %></p>
+          <div class="cataory"><%- books[i].category %></div>
+        </div>
+      </a>
+      <% } %>
+      <div class="fenpage">
+        <div class="pageBtns">
+          <% if(page > 1){ %>
+            <a href="/category/<%= cid %>/page/<%= (page-1) %>">上一页</a>
+          <% } %>
+
+          <% for(let i = startPage; i <= endPage; i++){ %>
+            <a <% if(page==i){ %> class="active" <% } %> href="/category/<%= cid %>/page/<%= i %>"><%= i %></a>
+          <% } %>
+
+          <% if(page < pageAll){ %>
+            <a href="/category/<%= cid %>/page/<%= (page+1) %>">下一页</a>
+          <% } %>
+        </div>
+        <div class="allCount">共<%= pageAll %>页</div>
+      </div>
+    </div>
+    <div class="erweima">
+      <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1291988422,50075718&fm=26&gp=0.jpg" alt="">
+    </div>
+  </div>
+
+  <script src="/js/jquery-1.7.2.js"></script>
+  <script src="/js/ban.js"></script>
+  <script>
+    var searchBtn = document.getElementById('searchBtn')
+    searchBtn.onclick = function(e) {
+      let value = document.getElementById('search').value
+      location.href = '/search/'+value+'/page/1'
+    }
+  </script>
+</body>
+</html>

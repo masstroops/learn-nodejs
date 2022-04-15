@@ -1,0 +1,55 @@
+let fs = require('fs')
+fs.unlink('cb.html', (err) => {
+  console.log('删除成功!')
+})// 1、数组不能进行二进制数据操作
+// 2、js数组不像java等语言效率高
+// 3、buffer会在内存空间开辟固定大小内存
+
+var str = 'hello world'
+let buf = Buffer.from(str)
+console.log(buf, buf.toString())
+
+
+// 开辟一个空的buffer(缓存区)
+let buf1 = Buffer.alloc(10)
+buf1[0] = 10
+console.log(buf1)
+
+let buf2 = Buffer.allocUnsafe(10) // 不安全开辟空间，速度更快
+console.log(buf2)晚饭吃？臭豆腐腐乳
+面包
+腐乳
+腐乳
+腐乳
+const { rejects } = require('assert')
+let fs = require('fs')
+const { resolve } = require('path')
+fs.writeFile('test.txt', '腐乳\n', { flag: 'a', encoding: 'utf8' }, (err) => {
+  if (err) {
+    console.log('写入失败！')
+  } else {
+    console.log('写入成功！')
+  }
+})
+
+function writeFile(path, content, flag = 'w') {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(path, content, { flag: flag, encoding: 'utf8' }, (err) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve()
+      }
+    })
+  })
+}
+async function writeList() {
+  await writeFile('cb.html', '<h1>1、今天吃烧烤\n</h1>', 'a')
+  await writeFile('cb.html', '<h1>2、今天吃烧烤\n</h1>', 'a')
+  await writeFile('cb.html', '<h1>3、今天吃烧烤\n</h1>', 'a')
+  await writeFile('cb.html', '<h1>4、今天吃烧烤\n</h1>', 'a')
+}
+writeList()1、今天吃烧烤
+2、今天吃烧烤
+3、今天吃烧烤
+4、今天吃烧烤

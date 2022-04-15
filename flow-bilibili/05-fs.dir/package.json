@@ -1,0 +1,12 @@
+{
+    "name": "readline",
+    "version": "1.0.0",
+    "description": "readline创建package.json",
+    "main": "input.js",
+    "scripts": {
+      "test": "echo "Error: no test specified" && exit 1"
+    },
+    "author": "陈兵",
+    "license": "ISC"
+  }
+  
